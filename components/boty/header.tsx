@@ -2,13 +2,10 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Menu, X, ShoppingBag, Search, User } from "lucide-react"
-import { CartDrawer } from "./cart-drawer"
-import { useCart } from "./cart-context"
+import { Menu, X } from "lucide-react"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { setIsOpen, itemCount } = useCart()
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
@@ -33,16 +30,16 @@ export function Header() {
               Services
             </Link>
             <Link
-              href="/"
+              href="#team"
               className="text-sm tracking-wide text-foreground/70 hover:text-foreground boty-transition"
             >
-              About
+              Team
             </Link>
             <Link
-              href="/"
+              href="#about"
               className="text-sm tracking-wide text-foreground/70 hover:text-foreground boty-transition"
             >
-              Contact
+              About Us
             </Link>
           </div>
 
@@ -51,39 +48,28 @@ export function Header() {
             <h1 className="font-serif text-3xl tracking-wider text-foreground">buyshez</h1>
           </Link>
 
-          {/* Right Actions */}
-          <div className="flex items-center gap-4">
-            <button
-              type="button"
-              className="p-2 text-foreground/70 hover:text-foreground boty-transition"
-              aria-label="Search"
-            >
-              <Search className="w-5 h-5" />
-            </button>
+          {/* Desktop Navigation - Right */}
+          <div className="hidden lg:flex items-center gap-8">
             <Link
-              href="/account"
-              className="hidden sm:block p-2 text-foreground/70 hover:text-foreground boty-transition"
-              aria-label="Account"
+              href="#offerings"
+              className="text-sm tracking-wide text-foreground/70 hover:text-foreground boty-transition"
             >
-              <User className="w-5 h-5" />
+              Offerings
             </Link>
-            <button
-              type="button"
-              onClick={() => setIsOpen(true)}
-              className="relative p-2 text-foreground/70 hover:text-foreground boty-transition"
-              aria-label="Cart"
+            <Link
+              href="#testimonials"
+              className="text-sm tracking-wide text-foreground/70 hover:text-foreground boty-transition"
             >
-              <ShoppingBag className="w-5 h-5" />
-              {itemCount > 0 && (
-                <span className="absolute -top-0 -right-0 w-4 h-4 bg-primary text-primary-foreground text-[10px] flex items-center justify-center rounded-full">
-                  {itemCount}
-                </span>
-              )}
-            </button>
+              Testimonials
+            </Link>
+            <Link
+              href="#contact"
+              className="text-sm tracking-wide text-foreground/70 hover:text-foreground boty-transition"
+            >
+              Contact
+            </Link>
           </div>
         </div>
-
-        <CartDrawer />
 
         {/* Mobile Navigation */}
         <div
@@ -99,22 +85,34 @@ export function Header() {
               Services
             </Link>
             <Link
-              href="/"
+              href="#team"
               className="text-sm tracking-wide text-foreground/70 hover:text-foreground boty-transition"
             >
-              About
+              Team
             </Link>
             <Link
-              href="/"
+              href="#about"
+              className="text-sm tracking-wide text-foreground/70 hover:text-foreground boty-transition"
+            >
+              About Us
+            </Link>
+            <Link
+              href="#offerings"
+              className="text-sm tracking-wide text-foreground/70 hover:text-foreground boty-transition"
+            >
+              Offerings
+            </Link>
+            <Link
+              href="#testimonials"
+              className="text-sm tracking-wide text-foreground/70 hover:text-foreground boty-transition"
+            >
+              Testimonials
+            </Link>
+            <Link
+              href="#contact"
               className="text-sm tracking-wide text-foreground/70 hover:text-foreground boty-transition"
             >
               Contact
-            </Link>
-            <Link
-              href="/"
-              className="text-sm tracking-wide text-foreground/70 hover:text-foreground boty-transition"
-            >
-              Account
             </Link>
           </div>
         </div>

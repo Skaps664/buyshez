@@ -89,7 +89,7 @@ export function FeatureSection() {
   }, [])
 
   return (
-    <section className="py-24 bg-background">
+    <section id="about" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Bento Grid */}
         <div 
@@ -110,7 +110,7 @@ export function FeatureSection() {
               playsInline
               className="absolute inset-0 w-full h-full object-cover"
             >
-              <source src="/images/office-workspace.jpg" type="video/mp4" />
+              <source src="https://www.pexels.com/download/video/3205674/"/>
             </video>
             {/* Overlay Card */}
             <div className="absolute bottom-8 left-8 right-8 bg-white p-6 shadow-lg rounded-xl">
@@ -139,7 +139,7 @@ export function FeatureSection() {
           >
             {/* Background Image */}
             <Image
-              src="/images/hero-consultancy-bg.jpg"
+              src="https://images.unsplash.com/photo-1758691737421-86dd84bd2951"
               alt="Digital transformation"
               fill
               className="object-cover"
@@ -179,26 +179,26 @@ export function FeatureSection() {
             style={{ transitionDelay: '200ms' }}
           >
             {/* Background Video */}
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover scale-[1.02]"
+            <Image
+              
+              className="object-cover"
+              alt="Digital transformation"
+              fill
+              src="https://images.unsplash.com/photo-1748255882537-cbe88b145305"
             >
-              <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/a0b7c364-afa9-4afa-9716-45718578cc01-Ih8UaqQr1bl8aoNlbRha4FgaQ65eXX.mp4" type="video/mp4" />
-            </video>
+              
+            </Image>
             {/* Overlay for text readability */}
             <div className="absolute inset-0 bg-transparent" />
             
             <div className="relative z-10 flex flex-col justify-center h-full text-left items-start">
               <div className="inline-flex items-center justify-center w-10 h-10 mb-3">
-                <Recycle className="w-8 h-8 text-black" />
+                <Recycle className="w-8 h-8 text-white" />
               </div>
-              <h3 className="font-sans text-base mb-1 text-black">
+              <h3 className="font-sans text-base mb-1 text-white">
                 Enterprise
               </h3>
-              <h3 className="text-2xl md:text-3xl mb-2 text-black">
+              <h3 className="text-2xl md:text-3xl mb-2 text-white">
                 Quality
               </h3>
             </div>
@@ -222,7 +222,7 @@ export function FeatureSection() {
               playsInline
               className="absolute inset-0 w-full h-full object-cover"
             >
-              <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0c826034-d4f2-4d4f-8e99-50e94e4ce63f-dG1CBOjR36xFPTbhcROrHbomGXtlTQ.mp4" type="video/mp4" />
+              <source src="https://www.pexels.com/download/video/7687995/" type="video/mp4" />
             </video>
           </div>
 

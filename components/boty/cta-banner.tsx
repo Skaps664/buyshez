@@ -40,7 +40,7 @@ export function CTABanner() {
         >
           {/* Background Image */}
           <Image
-            src="/images/hero-consultancy-bg.jpg"
+            src="https://images.unsplash.com/photo-1537186121022-6b14d84aafea"
             alt="Business transformation"
             fill
             className="object-cover"

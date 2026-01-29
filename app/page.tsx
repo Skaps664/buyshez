@@ -8,6 +8,7 @@ import { Team } from "@/components/boty/team"
 import { Testimonials } from "@/components/boty/testimonials"
 import { CTABanner } from "@/components/boty/cta-banner"
 import { Newsletter } from "@/components/boty/newsletter"
+import { Contact } from "@/components/boty/contact"
 import { Footer } from "@/components/boty/footer"
 
 export default function HomePage() {
@@ -22,7 +23,8 @@ export default function HomePage() {
       <Team />
       <Testimonials />
       <CTABanner />
-      <Newsletter />
+      {/* <Newsletter /> */}
+      <Contact />
       <Footer />
     </main>
   )

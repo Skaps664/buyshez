@@ -6,28 +6,28 @@ import Image from "next/image"
 
 const teamMembers = [
   {
-    name: "Strategic Leadership",
-    role: "Direction & Vision",
-    description: "Experienced consultants with decades of combined expertise in digital transformation, business strategy, and market analysis.",
-    image: "/images/team/strategic-leader.jpg"
+    name: "Shoaib Khan",
+    role: "Founder CEO and Graphic Designer",
+    description: "Leading the company with visionary strategies and exceptional graphic design expertise.",
+    image: "/images/team/shoaib.jpg"
   },
   {
-    name: "Development Team",
-    role: "Engineering Excellence",
-    description: "Full-stack developers proficient in modern frameworks, cloud infrastructure, and scalable architecture design.",
-    image: "/images/team/developer.jpg"
+    name: "Sudais",
+    role: "Lead Software Development",
+    description: "Driving software innovation and leading development teams to build robust, scalable solutions.",
+    image: "/images/team/sudais.jpg"
   },
   {
-    name: "Design & UX",
-    role: "Creative Solutions",
-    description: "Award-winning designers focused on creating intuitive, beautiful interfaces that drive user engagement and conversion.",
-    image: "/images/team/designer.jpg"
+    name: "Omer",
+    role: "Lead AI ML development",
+    description: "Spearheading AI and machine learning initiatives to create intelligent, data-driven applications.",
+    image: "/images/team/omer.jpg"
   },
   {
-    name: "Project Management",
-    role: "Execution & Delivery",
-    description: "Certified PMs ensuring every project is delivered on time, within scope, and exceeding expectations.",
-    image: "/images/team/project-manager.jpg"
+    name: "And 10+ More",
+    role: "Talented Team Members",
+    description: "Our extended team of skilled professionals across design, development, marketing, and operations.",
+    image: "/images/team/more.jpg"
   }
 ]
 
@@ -116,7 +116,7 @@ export function Team() {
   }, [])
 
   return (
-    <section className="py-24 bg-background">
+    <section id="team" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div ref={headerRef} className="text-center mb-20">
@@ -134,12 +134,12 @@ export function Team() {
         {/* Team Members */}
         <div 
           ref={membersRef}
-          className="grid md:grid-cols-2 gap-6 mb-20"
+          className="flex flex-row gap-6 mb-20 overflow-x-auto pb-4"
         >
           {teamMembers.map((member, index) => (
             <div
               key={member.name}
-              className={`group transition-all duration-700 ease-out ${
+              className={`group transition-all duration-700 ease-out flex-shrink-0 w-80 ${
                 membersVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
               }`}
               style={{ transitionDelay: membersVisible ? `${index * 100}ms` : '0ms' }}

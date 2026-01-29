@@ -131,7 +131,7 @@ export function WhatWeOffer() {
   }, [])
 
   return (
-    <section className="py-24 bg-card">
+    <section id="offerings" className="py-24 bg-card">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div ref={headerRef} className="text-center mb-20">
