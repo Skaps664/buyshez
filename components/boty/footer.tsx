@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Instagram, Facebook, Twitter } from "lucide-react"
+import { Instagram, Facebook, Linkedin } from "lucide-react"
 
 const footerLinks = {
   about: [
@@ -38,7 +38,7 @@ export function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://x.com/Kerroudjm"
+                href="https://www.instagram.com/buyshez"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background flex items-center justify-center text-foreground/60 hover:text-foreground boty-transition boty-shadow"
@@ -47,7 +47,7 @@ export function Footer() {
                 <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="https://x.com/Kerroudjm"
+                href="https://www.facebook.com/profile.php?id=61586142497810"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background flex items-center justify-center text-foreground/60 hover:text-foreground boty-transition boty-shadow"
@@ -56,13 +56,13 @@ export function Footer() {
                 <Facebook className="w-4 h-4" />
               </a>
               <a
-                href="https://x.com/Kerroudjm"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background flex items-center justify-center text-foreground/60 hover:text-foreground boty-transition boty-shadow"
-                aria-label="Twitter"
+                aria-label="LinkedIn"
               >
-                <Twitter className="w-4 h-4" />
+                <Linkedin className="w-4 h-4" />
               </a>
             </div>
           </div>

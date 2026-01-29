@@ -8,7 +8,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    value: "info@buyshez.com",
+    value: "buyshezltd@gmail.com",
     description: "Send us an email anytime"
   },
   {

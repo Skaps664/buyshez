@@ -9,25 +9,25 @@ const teamMembers = [
     name: "Shoaib Khan",
     role: "Founder CEO and Graphic Designer",
     description: "Leading the company with visionary strategies and exceptional graphic design expertise.",
-    image: "/images/team/shoaib.jpg"
+    image: "/sh.PNG"
   },
   {
     name: "Sudais",
     role: "Lead Software Development",
     description: "Driving software innovation and leading development teams to build robust, scalable solutions.",
-    image: "/images/team/sudais.jpg"
+    image: "/sud.png"
   },
   {
     name: "Omer",
     role: "Lead AI ML development",
     description: "Spearheading AI and machine learning initiatives to create intelligent, data-driven applications.",
-    image: "/images/team/omer.jpg"
+    image: "/om.jpeg"
   },
   {
     name: "And 10+ More",
     role: "Talented Team Members",
     description: "Our extended team of skilled professionals across design, development, marketing, and operations.",
-    image: "/images/team/more.jpg"
+    image: "/team.png"
   }
 ]
 

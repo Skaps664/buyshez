@@ -12,7 +12,7 @@ export function Hero() {
         <Image
           fill
           className="object-cover"
-          src="https://images.unsplash.com/photo-1617791160505-6f00504e3519"
+          src="/hero.jpg"
           alt="Hero background"
         />
         {/* Bottom fade gradient */}

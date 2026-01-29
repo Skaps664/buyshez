@@ -18,10 +18,9 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Boty — Natural Skincare',
-  description: 'Premium natural skincare and body care products. Glow gently with Boty.',
-  generator: 'v0.app',
-  keywords: ['skincare', 'natural', 'organic', 'beauty', 'body care', 'cruelty-free'],
+  title: 'buyshez — Digital Solutions & Strategy',
+  description: 'Strategic consulting and digital solutions for startups, SMEs, and enterprises. We deliver growth through innovative strategies and cutting-edge technology.',
+  keywords: ['consulting', 'digital solutions', 'startups', 'SMEs', 'enterprises', 'strategy', 'technology'],
   icons: {
     icon: [
       {
