@@ -98,12 +98,12 @@ export function Services() {
         {/* Services Grid */}
         <div 
           ref={gridRef}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="flex flex-row md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-x-auto pb-4"
         >
           {services.map((service, index) => (
             <div
               key={service.title}
-              className={`group transition-all duration-700 ease-out ${
+              className={`group transition-all duration-700 ease-out flex-shrink-0 md:flex-shrink lg:flex-shrink w-80 md:w-auto lg:w-auto ${
                 isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
               }`}
               style={{ transitionDelay: isVisible ? `${index * 80}ms` : '0ms' }}

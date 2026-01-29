@@ -149,12 +149,12 @@ export function WhatWeOffer() {
         {/* Offerings Grid */}
         <div 
           ref={offeringsRef}
-          className="grid md:grid-cols-2 gap-6 mb-24"
+          className="flex flex-row md:grid md:grid-cols-2 gap-6 mb-24 overflow-x-auto pb-4"
         >
           {offerings.map((offering, index) => (
             <div
               key={offering.title}
-              className={`group transition-all duration-700 ease-out ${
+              className={`group transition-all duration-700 ease-out flex-shrink-0 md:flex-shrink w-80 md:w-auto ${
                 offeringsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
               }`}
               style={{ transitionDelay: offeringsVisible ? `${index * 100}ms` : '0ms' }}
