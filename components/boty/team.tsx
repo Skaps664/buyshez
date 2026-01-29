@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Users, Award, Target, Lightbulb } from "lucide-react"
+import { Users, Award, Target, Lightbulb, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 
 const teamMembers = [
@@ -61,6 +61,19 @@ export function Team() {
   const headerRef = useRef<HTMLDivElement>(null)
   const membersRef = useRef<HTMLDivElement>(null)
   const valuesRef = useRef<HTMLDivElement>(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -320, behavior: 'smooth' })
+    }
+  }
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 320, behavior: 'smooth' })
+    }
+  }
 
   useEffect(() => {
     const headerObserver = new IntersectionObserver(
@@ -132,43 +145,63 @@ export function Team() {
         </div>
 
         {/* Team Members */}
-        <div 
-          ref={membersRef}
-          className="flex flex-row gap-6 mb-20 overflow-x-auto pb-4"
-        >
-          {teamMembers.map((member, index) => (
-            <div
-              key={member.name}
-              className={`group transition-all duration-700 ease-out flex-shrink-0 w-80 ${
-                membersVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-              }`}
-              style={{ transitionDelay: membersVisible ? `${index * 100}ms` : '0ms' }}
-            >
-              <div className="bg-card rounded-3xl overflow-hidden h-full boty-shadow boty-transition group-hover:scale-[1.02]">
-                {/* Image */}
-                <div className="relative w-full h-64 overflow-hidden bg-muted">
-                  <Image
-                    src={member.image || "/placeholder.svg"}
-                    alt={member.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+        <div ref={membersRef} className="relative">
+          {/* Left Button */}
+          <button
+            onClick={scrollLeft}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 md:hidden w-10 h-10 rounded-full bg-background/90 backdrop-blur-sm border border-border flex items-center justify-center shadow-lg hover:bg-background transition-colors"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="w-5 h-5 text-foreground" />
+          </button>
 
-                {/* Content */}
-                <div className="p-8">
-                  {/* Title */}
-                  <h3 className="font-serif text-2xl text-foreground mb-2">{member.name}</h3>
-                  
-                  {/* Role */}
-                  <p className="text-sm text-primary tracking-widest uppercase mb-4">{member.role}</p>
+          {/* Right Button */}
+          <button
+            onClick={scrollRight}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 md:hidden w-10 h-10 rounded-full bg-background/90 backdrop-blur-sm border border-border flex items-center justify-center shadow-lg hover:bg-background transition-colors"
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="w-5 h-5 text-foreground" />
+          </button>
 
-                  {/* Description */}
-                  <p className="text-muted-foreground leading-relaxed">{member.description}</p>
+          <div 
+            ref={scrollRef}
+            className="flex flex-row gap-6 mb-20 overflow-x-auto pb-4"
+          >
+            {teamMembers.map((member, index) => (
+              <div
+                key={member.name}
+                className={`group transition-all duration-700 ease-out flex-shrink-0 w-80 ${
+                  membersVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                }`}
+                style={{ transitionDelay: membersVisible ? `${index * 100}ms` : '0ms' }}
+              >
+                <div className="bg-card rounded-3xl overflow-hidden h-full boty-shadow boty-transition group-hover:scale-[1.02]">
+                  {/* Image */}
+                  <div className="relative w-full h-64 overflow-hidden bg-muted">
+                    <Image
+                      src={member.image || "/placeholder.svg"}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-8">
+                    {/* Title */}
+                    <h3 className="font-serif text-2xl text-foreground mb-2">{member.name}</h3>
+                    
+                    {/* Role */}
+                    <p className="text-sm text-primary tracking-widest uppercase mb-4">{member.role}</p>
+
+                    {/* Description */}
+                    <p className="text-muted-foreground leading-relaxed">{member.description}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Values Section */}

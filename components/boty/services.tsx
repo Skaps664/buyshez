@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Code2, Zap, PenTool, TrendingUp, Briefcase, Smartphone } from "lucide-react"
+import { Code2, Zap, PenTool, TrendingUp, Briefcase, Smartphone, ChevronLeft, ChevronRight } from "lucide-react"
 
 const services = [
   {
@@ -41,6 +41,19 @@ export function Services() {
   const headerRef = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
   const gridRef = useRef<HTMLDivElement>(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -320, behavior: 'smooth' })
+    }
+  }
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 320, behavior: 'smooth' })
+    }
+  }
 
   useEffect(() => {
     const headerObserver = new IntersectionObserver(
@@ -96,32 +109,52 @@ export function Services() {
         </div>
 
         {/* Services Grid */}
-        <div 
-          ref={gridRef}
-          className="flex flex-row md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-x-auto pb-4"
-        >
-          {services.map((service, index) => (
-            <div
-              key={service.title}
-              className={`group transition-all duration-700 ease-out flex-shrink-0 md:flex-shrink lg:flex-shrink w-80 md:w-auto lg:w-auto ${
-                isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-              }`}
-              style={{ transitionDelay: isVisible ? `${index * 80}ms` : '0ms' }}
-            >
-              <div className="bg-background rounded-3xl p-8 h-full boty-shadow boty-transition group-hover:scale-[1.02]">
-                {/* Icon */}
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 mb-6 group-hover:bg-primary/20 boty-transition">
-                  <service.icon className="w-7 h-7 text-primary" strokeWidth={1.5} />
+        <div ref={gridRef} className="relative">
+          {/* Left Button */}
+          <button
+            onClick={scrollLeft}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 md:hidden w-10 h-10 rounded-full bg-background/90 backdrop-blur-sm border border-border flex items-center justify-center shadow-lg hover:bg-background transition-colors"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="w-5 h-5 text-foreground" />
+          </button>
+
+          {/* Right Button */}
+          <button
+            onClick={scrollRight}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 md:hidden w-10 h-10 rounded-full bg-background/90 backdrop-blur-sm border border-border flex items-center justify-center shadow-lg hover:bg-background transition-colors"
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="w-5 h-5 text-foreground" />
+          </button>
+
+          <div 
+            ref={scrollRef}
+            className="flex flex-row md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-x-auto pb-4"
+          >
+            {services.map((service, index) => (
+              <div
+                key={service.title}
+                className={`group transition-all duration-700 ease-out flex-shrink-0 md:flex-shrink lg:flex-shrink w-80 md:w-auto lg:w-auto ${
+                  isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                }`}
+                style={{ transitionDelay: isVisible ? `${index * 80}ms` : '0ms' }}
+              >
+                <div className="bg-background rounded-3xl p-8 h-full boty-shadow boty-transition group-hover:scale-[1.02]">
+                  {/* Icon */}
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 mb-6 group-hover:bg-primary/20 boty-transition">
+                    <service.icon className="w-7 h-7 text-primary" strokeWidth={1.5} />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="font-serif text-2xl text-foreground mb-3">{service.title}</h3>
+
+                  {/* Description */}
+                  <p className="text-muted-foreground leading-relaxed">{service.description}</p>
                 </div>
-
-                {/* Title */}
-                <h3 className="font-serif text-2xl text-foreground mb-3">{service.title}</h3>
-
-                {/* Description */}
-                <p className="text-muted-foreground leading-relaxed">{service.description}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

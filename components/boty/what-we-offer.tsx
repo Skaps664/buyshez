@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { CheckCircle2, Zap, Shield, TrendingUp } from "lucide-react"
+import { CheckCircle2, Zap, Shield, TrendingUp, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 
 const offerings = [
@@ -76,6 +76,19 @@ export function WhatWeOffer() {
   const headerRef = useRef<HTMLDivElement>(null)
   const offeringsRef = useRef<HTMLDivElement>(null)
   const highlightsRef = useRef<HTMLDivElement>(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -320, behavior: 'smooth' })
+    }
+  }
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 320, behavior: 'smooth' })
+    }
+  }
 
   useEffect(() => {
     const headerObserver = new IntersectionObserver(
@@ -147,50 +160,70 @@ export function WhatWeOffer() {
         </div>
 
         {/* Offerings Grid */}
-        <div 
-          ref={offeringsRef}
-          className="flex flex-row md:grid md:grid-cols-2 gap-6 mb-24 overflow-x-auto pb-4"
-        >
-          {offerings.map((offering, index) => (
-            <div
-              key={offering.title}
-              className={`group transition-all duration-700 ease-out flex-shrink-0 md:flex-shrink w-80 md:w-auto ${
-                offeringsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-              }`}
-              style={{ transitionDelay: offeringsVisible ? `${index * 100}ms` : '0ms' }}
-            >
-              <div className="bg-background rounded-3xl overflow-hidden h-full boty-shadow boty-transition group-hover:scale-[1.02]">
-                {/* Image */}
-                <div className="relative w-full h-48 overflow-hidden bg-muted">
-                  <Image
-                    src={offering.image || "/placeholder.svg"}
-                    alt={offering.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+        <div ref={offeringsRef} className="relative">
+          {/* Left Button */}
+          <button
+            onClick={scrollLeft}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 md:hidden w-10 h-10 rounded-full bg-background/90 backdrop-blur-sm border border-border flex items-center justify-center shadow-lg hover:bg-background transition-colors"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="w-5 h-5 text-foreground" />
+          </button>
 
-                {/* Content */}
-                <div className="p-8">
-                  {/* Title */}
-                  <h3 className="font-serif text-2xl text-foreground mb-3">{offering.title}</h3>
-                  
-                  {/* Description */}
-                  <p className="text-muted-foreground leading-relaxed mb-6">{offering.description}</p>
+          {/* Right Button */}
+          <button
+            onClick={scrollRight}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 md:hidden w-10 h-10 rounded-full bg-background/90 backdrop-blur-sm border border-border flex items-center justify-center shadow-lg hover:bg-background transition-colors"
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="w-5 h-5 text-foreground" />
+          </button>
 
-                  {/* Features List */}
-                  <div className="space-y-3">
-                    {offering.features.map((feature) => (
-                      <div key={feature} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" strokeWidth={1.5} />
-                        <span className="text-sm text-foreground/80">{feature}</span>
-                      </div>
-                    ))}
+          <div 
+            ref={scrollRef}
+            className="flex flex-row md:grid md:grid-cols-2 gap-6 mb-24 overflow-x-auto pb-4"
+          >
+            {offerings.map((offering, index) => (
+              <div
+                key={offering.title}
+                className={`group transition-all duration-700 ease-out flex-shrink-0 md:flex-shrink w-80 md:w-auto ${
+                  offeringsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                }`}
+                style={{ transitionDelay: offeringsVisible ? `${index * 100}ms` : '0ms' }}
+              >
+                <div className="bg-background rounded-3xl overflow-hidden h-full boty-shadow boty-transition group-hover:scale-[1.02]">
+                  {/* Image */}
+                  <div className="relative w-full h-48 overflow-hidden bg-muted">
+                    <Image
+                      src={offering.image || "/placeholder.svg"}
+                      alt={offering.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-8">
+                    {/* Title */}
+                    <h3 className="font-serif text-2xl text-foreground mb-3">{offering.title}</h3>
+                    
+                    {/* Description */}
+                    <p className="text-muted-foreground leading-relaxed mb-6">{offering.description}</p>
+
+                    {/* Features List */}
+                    <div className="space-y-3">
+                      {offering.features.map((feature) => (
+                        <div key={feature} className="flex items-start gap-3">
+                          <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" strokeWidth={1.5} />
+                          <span className="text-sm text-foreground/80">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Highlights */}
