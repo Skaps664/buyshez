@@ -9,19 +9,19 @@ const contactInfo = [
     icon: Mail,
     title: "Email",
     value: "buyshezltd@gmail.com",
-    description: "Send us an email anytime"
+    description: "We'll respond within 24 hours"
   },
   {
     icon: Phone,
     title: "Phone",
-    value: "+1 (555) 123-4567",
-    description: "Mon-Fri from 8am to 5pm"
+    value: "+44 7492 426822",
+    description: "Mon-Fri from 9am to 5pm GMT"
   },
   {
     icon: MapPin,
-    title: "Address",
-    value: "123 Business St, Suite 100\nNew York, NY 10001",
-    description: "Come visit our office"
+    title: "Registered Office",
+    value: "2 Lidgett Towers\nLeeds, West Yorkshire\nLS8 1RF, United Kingdom",
+    description: "BUYSHEZ LTD - Company No: 16961251"
   }
 ]
 
@@ -155,7 +155,7 @@ export function Contact() {
           {/* Contact Info */}
           <div ref={infoRef}>
             <h3 className="font-serif text-3xl text-primary-foreground mb-8">Let's talk</h3>
-            <div className="space-y-8">
+            <div className="space-y-8 mb-12">
               {contactInfo.map((info, index) => (
                 <div
                   key={info.title}
@@ -176,6 +176,36 @@ export function Contact() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Company Details */}
+            <div className="bg-primary-foreground/5 rounded-2xl p-6 border border-primary-foreground/10">
+              <h4 className="font-medium text-primary-foreground mb-4">Company Information</h4>
+              <div className="space-y-2 text-sm text-primary-foreground/80">
+                <div className="flex justify-between">
+                  <span>Legal Name:</span>
+                  <span className="text-primary-foreground font-medium">BUYSHEZ LTD</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Company Number:</span>
+                  <span className="text-primary-foreground font-medium">16961251</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Incorporated:</span>
+                  <span className="text-primary-foreground font-medium">23 Apr 2024</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Country:</span>
+                  <span className="text-primary-foreground font-medium">United Kingdom</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Status:</span>
+                  <span className="text-green-400 font-medium">Active</span>
+                </div>
+              </div>
+              <p className="text-xs text-primary-foreground/60 mt-4 pt-4 border-t border-primary-foreground/10">
+                Registered in England and Wales. VAT registered company.
+              </p>
             </div>
           </div>
 

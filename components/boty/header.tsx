@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ShoppingBag } from "lucide-react"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -68,6 +68,13 @@ export function Header() {
             >
               Contact
             </Link>
+            <Link
+              href="/shop"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm tracking-wide boty-transition hover:bg-primary/90 boty-shadow"
+            >
+              <ShoppingBag className="w-4 h-4" />
+              BuyShez Shop
+            </Link>
           </div>
         </div>
 
@@ -113,6 +120,13 @@ export function Header() {
               className="text-sm tracking-wide text-foreground/70 hover:text-foreground boty-transition"
             >
               Contact
+            </Link>
+            <Link
+              href="/shop"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm tracking-wide boty-transition hover:bg-primary/90 boty-shadow"
+            >
+              <ShoppingBag className="w-4 h-4" />
+              BuyShez Shop
             </Link>
           </div>
         </div>

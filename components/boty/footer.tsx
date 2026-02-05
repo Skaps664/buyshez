@@ -10,6 +10,12 @@ const footerLinks = {
     { name: "Services", href: "#services" },
     { name: "Testimonials", href: "#testimonials" }
   ],
+  shop: [
+    { name: "Browse Products", href: "/shop" },
+    { name: "Shop on eBay", href: "https://ebay.com" },
+    { name: "New Arrivals", href: "/shop" },
+    { name: "Best Sellers", href: "/shop" }
+  ],
   company: [
     { name: "Contact Us", href: "#contact" },
     { name: "Privacy Policy", href: "/" },
@@ -29,13 +35,19 @@ export function Footer() {
       </div>
       
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-10 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <h2 className="font-serif text-3xl text-foreground mb-4">buyshez</h2>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-              Strategic consulting and digital solutions for startups, SMEs, and enterprises. We deliver growth through innovative strategies and cutting-edge technology.
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+              Strategic consulting, digital solutions, and premium curated products for startups, SMEs, and enterprises.
             </p>
+            <div className="text-xs text-muted-foreground space-y-1 mb-6">
+              <p className="font-medium text-foreground">BUYSHEZ LTD</p>
+              <p>Registered in England & Wales</p>
+              <p>Company No: 16961251</p>
+              <p>VAT Registered</p>
+            </div>
             <div className="flex gap-4">
               <a
                 href="https://www.instagram.com/buyshez"
@@ -84,6 +96,23 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Shop Links */}
+          <div>
+            <h3 className="font-medium text-foreground mb-4">Shop</h3>
+            <ul className="space-y-3">
+              {footerLinks.shop.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:text-foreground boty-transition"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Company Links */}
           <div>
             <h3 className="font-medium text-foreground mb-4">Company</h3>
@@ -106,7 +135,7 @@ export function Footer() {
         <div className="pt-10 border-t border-border/50">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} buyshez. All rights reserved.
+              © {new Date().getFullYear()} BUYSHEZ LTD. All rights reserved. Registered in England & Wales, Company No: 16961251
             </p>
             <div className="flex gap-6">
               <Link href="https://ebay.com" className="text-sm text-muted-foreground hover:text-foreground boty-transition">

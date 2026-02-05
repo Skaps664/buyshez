@@ -23,15 +23,15 @@ export function Hero() {
       <div className="relative z-10 w-full pt-20 mr-14 lg:mr-0">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="w-full lg:max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
-            <span className="text-sm uppercase mb-6 block text-white animate-blur-in opacity-0 tracking-normal" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
-              Digital Solutions & Strategy
-            </span>
+            {/* <span className="text-sm uppercase mb-6 block text-white animate-blur-in opacity-0 tracking-normal" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
+              Services & Products
+            </span> */}
             <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6 text-balance text-white">
-              <span className="block animate-blur-in opacity-0 font-semibold" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>Transform your</span>
-              <span className="block animate-blur-in opacity-0 font-semibold xl:text-9xl text-7xl" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>business today.</span>
+              <span className="block animate-blur-in opacity-0 font-semibold" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>Quality products &</span>
+              <span className="block animate-blur-in opacity-0 font-semibold xl:text-9xl text-7xl" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>services with us.</span>
             </h2>
             <p className="text-lg leading-relaxed mb-10 max-w-md mx-auto lg:mx-0 text-white animate-blur-in opacity-0" style={{ animationDelay: '0.8s', animationFillMode: 'forwards' }}>
-              Strategic consulting and digital innovation for startups, SMEs, and enterprises. We deliver results.
+              Strategic consulting, digital innovation, and curated products for startups, SMEs, and enterprises. We deliver results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-blur-in opacity-0" style={{ animationDelay: '1s', animationFillMode: 'forwards' }}>
               <Link
@@ -39,6 +39,13 @@ export function Hero() {
                 className="group inline-flex items-center justify-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-full text-sm tracking-wide boty-transition hover:bg-primary/90 boty-shadow"
               >
                 Explore Services
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 boty-transition" />
+              </Link>
+              <Link
+                href="/shop"
+                className="group inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm text-black px-8 py-4 rounded-full text-sm tracking-wide boty-transition hover:bg-white/20 border border-white/30"
+              >
+                Shop Our Products
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 boty-transition" />
               </Link>
             </div>

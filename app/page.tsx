@@ -1,6 +1,8 @@
 import { Header } from "@/components/boty/header"
 import { Hero } from "@/components/boty/hero"
 import { TrustBadges } from "@/components/boty/trust-badges"
+import { ShopShowcase } from "@/components/boty/shop-showcase"
+import { ShopPopup } from "@/components/boty/shop-popup"
 import { Services } from "@/components/boty/services"
 import { FeatureSection } from "@/components/boty/feature-section"
 import { WhatWeOffer } from "@/components/boty/what-we-offer"
@@ -17,6 +19,7 @@ export default function HomePage() {
       <Header />
       <Hero />
       <TrustBadges />
+      <ShopShowcase />
       <Services />
       <FeatureSection />
       <WhatWeOffer />
@@ -26,6 +29,7 @@ export default function HomePage() {
       {/* <Newsletter /> */}
       <Contact />
       <Footer />
+      <ShopPopup />
     </main>
   )
 }
