@@ -3,6 +3,10 @@
 import Link from "next/link"
 import { Instagram, Facebook, Linkedin } from "lucide-react"
 
+interface FooterProps {
+  mode?: "services" | "store"
+}
+
 const footerLinks = {
   about: [
     { name: "Our Story", href: "#about" },
@@ -24,9 +28,11 @@ const footerLinks = {
   ]
 }
 
-export function Footer() {
+export function Footer({ mode = "services" }: FooterProps) {
+  const isStore = mode === "store"
+
   return (
-    <footer id="contact" className="bg-card pt-20 pb-10 relative overflow-hidden">
+    <footer className="bg-card pt-20 pb-10 relative overflow-hidden">
       {/* Giant Background Text */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none select-none z-0">
         <span className="font-serif text-[200px] sm:text-[200px] md:text-[400px] lg:text-[400px] xl:text-[400px] font-bold text-white/20 whitespace-nowrap leading-none">
@@ -40,7 +46,9 @@ export function Footer() {
           <div className="col-span-2 md:col-span-1">
             <h2 className="font-serif text-3xl text-foreground mb-4">buyshez</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-              Strategic consulting, digital solutions, and premium curated products for startups, SMEs, and enterprises.
+              {isStore
+                ? "Curated products, trusted listings, and a smooth buying experience with fast fulfillment."
+                : "Strategic consulting and digital solutions for startups, SMEs, and enterprises."}
             </p>
             <div className="text-xs text-muted-foreground space-y-1 mb-6">
               <p className="font-medium text-foreground">BUYSHEZ LTD</p>
@@ -98,9 +106,21 @@ export function Footer() {
 
           {/* Shop Links */}
           <div>
-            <h3 className="font-medium text-foreground mb-4">Shop</h3>
+            <h3 className="font-medium text-foreground mb-4">{isStore ? "Store" : "Explore"}</h3>
             <ul className="space-y-3">
-              {footerLinks.shop.map((link) => (
+              {(isStore
+                ? [
+                    { name: "Browse Products", href: "/shop" },
+                    { name: "eBay Store", href: "https://ebay.com" },
+                    { name: "Go to Services", href: "/service" },
+                    { name: "Main Gateway", href: "/" }
+                  ]
+                : [
+                    { name: "Main Gateway", href: "/" },
+                    { name: "Visit Store", href: "/shop" },
+                    { name: "Contact Us", href: "#contact" },
+                    { name: "Our Team", href: "#team" }
+                  ]).map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
@@ -117,7 +137,14 @@ export function Footer() {
           <div>
             <h3 className="font-medium text-foreground mb-4">Company</h3>
             <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
+              {(isStore
+                ? [
+                    { name: "Services", href: "/service" },
+                    { name: "Main Gateway", href: "/" },
+                    { name: "Privacy Policy", href: "/" },
+                    { name: "Terms of Service", href: "/" }
+                  ]
+                : footerLinks.company).map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
@@ -137,7 +164,16 @@ export function Footer() {
             <p className="text-sm text-muted-foreground">
               © {new Date().getFullYear()} BUYSHEZ LTD. All rights reserved. Registered in England & Wales, Company No: 16961251
             </p>
-            <div className="flex gap-6">
+            <div className="flex gap-6 items-center">
+              {isStore ? (
+                <Link href="/service" className="text-sm text-primary hover:text-foreground boty-transition">
+                  Go to Services
+                </Link>
+              ) : (
+                <Link href="/shop" className="text-sm text-primary hover:text-foreground boty-transition">
+                  Visit Store
+                </Link>
+              )}
               <Link href="https://ebay.com" className="text-sm text-muted-foreground hover:text-foreground boty-transition">
                 eBay
               </Link>

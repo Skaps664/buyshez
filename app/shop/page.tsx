@@ -3,7 +3,8 @@
 import { useState, useMemo } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Search, SlidersHorizontal, ShoppingBag } from "lucide-react"
+import { ArrowRight, Search, SlidersHorizontal, ShoppingBag } from "lucide-react"
+import { BestSellers } from "@/components/boty/best-sellers"
 import { Header } from "@/components/boty/header"
 import { Footer } from "@/components/boty/footer"
 import { Input } from "@/components/ui/input"
@@ -218,6 +219,14 @@ export default function ShopPage() {
     selectedPriceRange.length +
     (showInStockOnly ? 1 : 0)
 
+  const bestSellerProducts = useMemo(() => {
+    const tagged = mockProducts.filter((product) => product.badge === "Bestseller")
+    if (tagged.length >= 4) {
+      return tagged.slice(0, 4)
+    }
+    return [...tagged, ...mockProducts.filter((product) => product.badge !== "Bestseller")].slice(0, 4)
+  }, [])
+
   const FilterContent = () => (
     <div className="space-y-6">
       {/* Category Filter */}
@@ -294,7 +303,7 @@ export default function ShopPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Header mode="store" />
 
       {/* Hero Banner */}
       <section className="relative pt-24 pb-16 px-6 lg:px-8 bg-gradient-to-br from-primary via-primary/90 to-purple-600 overflow-hidden">
@@ -332,11 +341,21 @@ export default function ShopPage() {
         </div>
       </section>
 
+      <BestSellers products={bestSellerProducts} />
+
       {/* Products Section */}
       <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
-            <div>
+          <div className="text-center max-w-3xl mx-auto mb-8 md:mb-10">
+            <p className="text-xs md:text-sm uppercase tracking-[0.24em] text-primary mb-3">Product Catalog</p>
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground leading-tight mb-4">All Products</h2>
+            <p className="text-sm md:text-base text-muted-foreground">
+              Explore our full collection with smart filters and search to quickly find the right product for your needs.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+            <div className="text-center sm:text-left">
               <h2 className="text-xl md:text-2xl font-semibold text-foreground">
                 {filteredProducts.length} {filteredProducts.length === 1 ? 'Product' : 'Products'}
               </h2>
@@ -459,10 +478,42 @@ export default function ShopPage() {
               )}
             </div>
           </div>
+
+          <div className="mt-14 md:mt-16 rounded-3xl p-8 md:p-12 bg-gradient-to-r from-primary via-primary/90 to-blue-600 text-primary-foreground overflow-hidden relative">
+            <div className="absolute top-0 right-0 w-52 h-52 rounded-full bg-white/10 blur-2xl" />
+            <div className="absolute -bottom-10 left-0 w-60 h-60 rounded-full bg-white/10 blur-3xl" />
+            <div className="relative z-10 max-w-3xl mx-auto text-center">
+              <p className="text-xs md:text-sm uppercase tracking-[0.24em] text-primary-foreground/80 mb-3">Featured Campaign</p>
+              <h3 className="font-serif text-3xl md:text-5xl leading-tight mb-4">Flash Offers This Week</h3>
+              <p className="text-primary-foreground/90 text-base md:text-lg mb-7">
+                Highlight a promotion, seasonal offer, or sponsored launch here. This banner is designed for high visibility and conversion.
+              </p>
+              <Link
+                href="/shop"
+                className="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-full text-sm md:text-base font-medium hover:bg-white/90 boty-transition"
+              >
+                Explore Offers
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      <Footer />
+      <section className="py-10 border-t border-border/50 bg-card">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+          <p className="text-sm text-muted-foreground mb-3">Need strategy, software, or growth support for your business?</p>
+          <Link
+            href="/service"
+            className="inline-flex items-center gap-2 text-sm text-primary hover:text-foreground boty-transition"
+          >
+            Go to BuyShez Services
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </section>
+
+      <Footer mode="store" />
     </div>
   )
 }

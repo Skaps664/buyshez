@@ -27,11 +27,11 @@ export function Hero() {
               Services & Products
             </span> */}
             <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6 text-balance text-white">
-              <span className="block animate-blur-in opacity-0 font-semibold" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>Quality products &</span>
-              <span className="block animate-blur-in opacity-0 font-semibold xl:text-9xl text-7xl" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>services with us.</span>
+              <span className="block animate-blur-in opacity-0 font-semibold" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>Build better,</span>
+              <span className="block animate-blur-in opacity-0 font-semibold xl:text-9xl text-7xl" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>grow faster.</span>
             </h2>
             <p className="text-lg leading-relaxed mb-10 max-w-md mx-auto lg:mx-0 text-white animate-blur-in opacity-0" style={{ animationDelay: '0.8s', animationFillMode: 'forwards' }}>
-              Strategic consulting, digital innovation, and curated products for startups, SMEs, and enterprises. We deliver results.
+              Strategic consulting and digital execution for startups, SMEs, and enterprises. From planning to delivery, we focus on measurable business outcomes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-blur-in opacity-0" style={{ animationDelay: '1s', animationFillMode: 'forwards' }}>
               <Link
@@ -45,7 +45,7 @@ export function Hero() {
                 href="/shop"
                 className="group inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm text-black px-8 py-4 rounded-full text-sm tracking-wide boty-transition hover:bg-white/20 border border-white/30"
               >
-                Shop Our Products
+                Visit Store
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 boty-transition" />
               </Link>
             </div>
