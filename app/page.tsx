@@ -1,9 +1,20 @@
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowRight, BriefcaseBusiness, ShoppingBag } from "lucide-react"
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-background via-card to-background flex items-center px-6 py-16 md:px-10">
+    <main className="relative min-h-screen bg-gradient-to-b from-background via-card to-background flex items-center px-6 py-16 md:px-10">
+      <Link href="/" className="absolute top-6 left-6 z-10">
+        <Image
+          src="/b-log.png"
+          alt="BuyShez"
+          width={160}
+          height={56}
+          className="h-10 md:h-12 w-auto object-contain"
+          priority
+        />
+      </Link>
       <div className="mx-auto w-full max-w-6xl">
         <div className="text-center mb-12">
           <p className="text-xs uppercase tracking-[0.35em] text-primary mb-4">Welcome to BuyShez</p>

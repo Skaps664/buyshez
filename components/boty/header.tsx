@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Menu, X, ShoppingBag, ShoppingCart, User } from "lucide-react"
 import { useCart } from "./cart-context"
 
@@ -77,7 +78,14 @@ export function Header({ mode = "services" }: HeaderProps) {
 
           {/* Logo */}
           <Link href="/" className="absolute left-1/2 -translate-x-1/2">
-            <h1 className="font-serif text-3xl tracking-wider text-foreground">buyshez</h1>
+            <Image
+              src="/b-log.png"
+              alt="BuyShez"
+              width={180}
+              height={64}
+              className="h-12 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation - Right */}

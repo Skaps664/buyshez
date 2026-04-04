@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Instagram, Facebook, Linkedin } from "lucide-react"
 
 interface FooterProps {
@@ -44,7 +45,15 @@ export function Footer({ mode = "services" }: FooterProps) {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <h2 className="font-serif text-3xl text-foreground mb-4">buyshez</h2>
+            <Link href="/" className="inline-flex mb-4">
+              <Image
+                src="/b-log.png"
+                alt="BuyShez"
+                width={180}
+                height={64}
+                className="h-12 w-auto object-contain"
+              />
+            </Link>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               {isStore
                 ? "Curated products, trusted listings, and a smooth buying experience with fast fulfillment."
