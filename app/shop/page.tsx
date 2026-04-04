@@ -306,11 +306,21 @@ export default function ShopPage() {
       <Header mode="store" />
 
       {/* Hero Banner */}
-      <section className="relative pt-24 pb-16 px-6 lg:px-8 bg-gradient-to-br from-primary via-primary/90 to-purple-600 overflow-hidden">
+      <section className="relative pt-24 pb-16 px-6 lg:px-8 overflow-hidden">
+        <div className="absolute inset-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage:
+                "url('https://images.unsplash.com/photo-1522923034308-c53a7abf36b8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+            }}
+          />
+          <div className="absolute inset-0 bg-black/45" />
+        </div>
+
         {/* Decorative elements */}
-        <div className="absolute inset-0 bg-grid-white/10" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
         
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="max-w-3xl pt-6">
@@ -479,7 +489,17 @@ export default function ShopPage() {
             </div>
           </div>
 
-          <div className="mt-14 md:mt-16 rounded-3xl p-8 md:p-12 bg-gradient-to-r from-primary via-primary/90 to-blue-600 text-primary-foreground overflow-hidden relative">
+          <div className="mt-14 md:mt-16 rounded-3xl p-8 md:p-12 text-primary-foreground overflow-hidden relative">
+            <div className="absolute inset-0">
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage:
+                    "url('https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+                }}
+              />
+              <div className="absolute inset-0 bg-black/45" />
+            </div>
             <div className="absolute top-0 right-0 w-52 h-52 rounded-full bg-white/10 blur-2xl" />
             <div className="absolute -bottom-10 left-0 w-60 h-60 rounded-full bg-white/10 blur-3xl" />
             <div className="relative z-10 max-w-3xl mx-auto text-center">

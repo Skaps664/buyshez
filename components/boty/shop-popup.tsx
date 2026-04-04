@@ -44,7 +44,7 @@ export function ShopPopup() {
         {/* Content */}
         <div className="relative">
           {/* Decorative background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-500/10 to-blue-500/10" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-blue-500/10 to-blue-400/10" />
           
           <div className="relative p-8 text-center">
             {/* Icon */}

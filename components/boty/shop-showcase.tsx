@@ -134,7 +134,7 @@ export function ShopShowcase() {
                       : product.badge === "New"
                       ? "bg-blue-500 text-white"
                       : product.badge === "Popular"
-                      ? "bg-purple-500 text-white"
+                      ? "bg-blue-500 text-white"
                       : "bg-primary text-primary-foreground"
                   }`}>
                     {product.badge}

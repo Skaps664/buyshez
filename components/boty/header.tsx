@@ -79,7 +79,7 @@ export function Header({ mode = "services" }: HeaderProps) {
           {/* Logo */}
           <Link href="/" className="absolute left-1/2 -translate-x-1/2">
             <Image
-              src="/b-log.png"
+              src="/b-log-3.png"
               alt="BuyShez"
               width={180}
               height={64}

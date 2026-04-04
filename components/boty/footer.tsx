@@ -47,7 +47,7 @@ export function Footer({ mode = "services" }: FooterProps) {
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="inline-flex mb-4">
               <Image
-                src="/b-log.png"
+                src="/b-log-3.png"
                 alt="BuyShez"
                 width={180}
                 height={64}
