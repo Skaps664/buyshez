@@ -63,7 +63,6 @@ export function Footer({ mode = "services" }: FooterProps) {
               <p className="font-medium text-foreground">BUYSHEZ LTD</p>
               <p>Registered in England & Wales</p>
               <p>Company No: 16961251</p>
-              <p>VAT Registered</p>
             </div>
             <div className="flex gap-4">
               <a
