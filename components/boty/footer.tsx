@@ -170,9 +170,23 @@ export function Footer({ mode = "services" }: FooterProps) {
         {/* Bottom Bar */}
         <div className="pt-10 border-t border-border/50">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} BUYSHEZ LTD. All rights reserved. Registered in England & Wales, Company No: 16961251
-            </p>
+            <div className="text-center md:text-left">
+              <p className="text-sm text-muted-foreground">
+                © {new Date().getFullYear()} BUYSHEZ LTD. All rights reserved. Registered in England & Wales, Company No: 16961251
+              </p>
+              <p className="text-xs text-muted-foreground mt-1">
+                Designed and developed by{" "}
+                <a
+                  href="https://www.skordlabs.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-foreground boty-transition"
+                >
+                  Skordlabs
+                </a>
+                , and skordlabs is www.skordlabs.com
+              </p>
+            </div>
             <div className="flex gap-6 items-center">
               {isStore ? (
                 <Link href="/service" className="text-sm text-primary hover:text-foreground boty-transition">
