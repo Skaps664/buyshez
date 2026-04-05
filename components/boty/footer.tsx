@@ -183,7 +183,6 @@ export function Footer({ mode = "services" }: FooterProps) {
                 >
                   Skordlabs
                 </a>
-                , and skordlabs is www.skordlabs.com
               </p>
             </div>
             <div className="flex gap-6 items-center">
