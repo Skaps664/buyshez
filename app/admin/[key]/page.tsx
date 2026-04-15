@@ -11,6 +11,7 @@ import {
 } from "./actions"
 import { PasskeyGate } from "./passkey-gate"
 import { getAdminDashboardData } from "@/lib/db/store"
+import { ConfirmSubmitButton } from "@/components/ui/confirm-submit-button"
 
 const ADMIN_KEY = process.env.ADMIN_PANEL_KEY || "shoaibinuk00788"
 
@@ -229,9 +230,14 @@ export default async function AdminPanelPage({ params, searchParams }: AdminPage
                 </div>
               </div>
 
-              <button type="submit" className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700">
+              <ConfirmSubmitButton 
+                title="Save Home Content"
+                description="Are you sure you want to update the home page content?"
+                confirmText="Save Changes"
+                className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+              >
                 Save Home Controller
-              </button>
+              </ConfirmSubmitButton>
             </form>
           </section>
         ) : null}
@@ -255,9 +261,14 @@ export default async function AdminPanelPage({ params, searchParams }: AdminPage
                   <input type="checkbox" name="is_visible" defaultChecked />
                   Show in categories panel
                 </label>
-                <button type="submit" className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700">
+                <ConfirmSubmitButton 
+                  title="Create Category"
+                  description="Are you sure you want to add this category?"
+                  confirmText="Add Category"
+                  className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+                >
                   Add Category
-                </button>
+                </ConfirmSubmitButton>
               </form>
             </div>
 
@@ -286,16 +297,24 @@ export default async function AdminPanelPage({ params, searchParams }: AdminPage
                         Visible
                       </label>
                       <div className="flex items-center gap-2">
-                        <button type="submit" className="rounded-md border border-slate-300 px-2 py-1 text-xs font-medium text-slate-700 hover:bg-slate-100">
+                        <ConfirmSubmitButton 
+                          title="Update Category"
+                          description={`Are you sure you want to update ${category.name}?`}
+                          confirmText="Save"
+                          className="rounded-md border border-slate-300 px-2 py-1 text-xs font-medium text-slate-700 hover:bg-slate-100"
+                        >
                           Save
-                        </button>
-                        <button
-                          type="submit"
+                        </ConfirmSubmitButton>
+                        <ConfirmSubmitButton
                           formAction={deleteCategory}
+                          variant="destructive"
+                          title="Delete Category"
+                          description={`Are you sure you want to delete ${category.name}? This action cannot be undone.`}
+                          confirmText="Delete"
                           className="rounded-md border border-red-300 px-2 py-1 text-xs font-medium text-red-700 hover:bg-red-50"
                         >
                           Delete
-                        </button>
+                        </ConfirmSubmitButton>
                       </div>
                     </form>
                   ))
@@ -396,9 +415,14 @@ export default async function AdminPanelPage({ params, searchParams }: AdminPage
                   </label>
                 </div>
 
-                <button type="submit" className="w-fit rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700">
+                <ConfirmSubmitButton 
+                  title="Create Product"
+                  description="Are you sure you want to create this new product?"
+                  confirmText="Create Product"
+                  className="w-fit rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+                >
                   Create Product
-                </button>
+                </ConfirmSubmitButton>
               </form>
             </div>
 
@@ -611,16 +635,24 @@ export default async function AdminPanelPage({ params, searchParams }: AdminPage
                         </div>
 
                         <div className="mt-3 flex items-center gap-2">
-                          <button type="submit" className="rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">
+                          <ConfirmSubmitButton 
+                            title="Update Product"
+                            description={`Are you sure you want to save changes to ${product.name}?`}
+                            confirmText="Save Full Product"
+                            className="rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+                          >
                             Save Full Product
-                          </button>
-                          <button
-                            type="submit"
+                          </ConfirmSubmitButton>
+                          <ConfirmSubmitButton
                             formAction={deleteProduct}
+                            variant="destructive"
+                            title="Delete Product"
+                            description={`Are you sure you want to permanently delete ${product.name}? This cannot be undone.`}
+                            confirmText="Delete Product"
                             className="rounded-lg border border-red-300 px-3 py-2 text-sm font-medium text-red-700 hover:bg-red-50"
                           >
                             Delete Product
-                          </button>
+                          </ConfirmSubmitButton>
                         </div>
                       </form>
                     </details>
